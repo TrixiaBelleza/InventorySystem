@@ -2,7 +2,7 @@ CREATE DATABASE IF NOT EXISTS inventory_db;
 USE inventory_db;
 
 CREATE TABLE categories (
-	category_id INT NOT NULL,
+	category_id INT NOT NULL AUTO_INCREMENT ,
 	category_name VARCHAR(100) NOT NULL,
 	category_desc TEXT,
 	PRIMARY KEY (category_id)
