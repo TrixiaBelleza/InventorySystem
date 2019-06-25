@@ -21,6 +21,27 @@ exports.post_category = (req, res, next) => {
 	});
 };
 
+//Adds product to database
+exports.post_product = (req, res, next) => {
+	const data = {
+		product_name : req.body.product_name,
+		qty_stock : req.body.qty_stock,
+		product_desc : req.body.product_desc,
+		price : req.body.price,
+		category_id : req.body.category_id
+	};
+	const query_string = 'INSERT INTO products (product_name, qty_stock, product_desc, price, category_id) VALUES (?, ?, ?, ?, ?)';
+	db.query(query_string, [data.product_name, data.qty_stock, data.product_desc, data.price, data.category_id], (err, result) => {
+		if(err) {
+			console.log(err);
+		}
+		else {
+			result = data;
+		}
+		res.send(result);	
+	});
+};
+
 //get all categories from database
 exports.get_all_categories = (req, res, next) => {
 	db.query('SELECT * FROM categories', [], (err, result) => {

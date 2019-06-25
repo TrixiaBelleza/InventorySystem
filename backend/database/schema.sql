@@ -9,7 +9,7 @@ CREATE TABLE categories (
 );
 
 CREATE TABLE products (
-	product_id INT NOT NULL,
+	product_id INT NOT NULL AUTO_INCREMENT,
 	product_name VARCHAR(200) NOT NULL,
 	qty_stock INT NOT NULL,
 	product_desc TEXT,
