@@ -20,3 +20,10 @@ exports.post_category = (req, res, next) => {
 		res.send(result);	
 	});
 };
+
+//get all categories from database
+exports.get_all_categories = (req, res, next) => {
+	db.query('SELECT * FROM categories', [], (err, result) => {
+		res.send(result);
+	});
+};
