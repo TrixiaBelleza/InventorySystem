@@ -27,3 +27,15 @@ exports.get_all_categories = (req, res, next) => {
 		res.send(result);
 	});
 };
+
+//delete category
+exports.delete_category = (req, res, next) => {
+	const data = {
+		category_id : req.body.category_id
+	};
+	const query_string = 'DELETE FROM categories WHERE category_id = ?';
+	db.query(query_string, [data.category_id], (err, result) => {
+		if(err) console.log(err);
+		res.send(data);
+	});
+}
